@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from cohesive.auth import validate_token
 
 
-class DjangoAuthMiddleware:
+class AuthMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
 
