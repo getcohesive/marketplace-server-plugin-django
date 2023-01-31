@@ -1,2 +1,2 @@
-django
+Django
 git+https://github.com/getcohesive/marketplace-server-sdk-python
