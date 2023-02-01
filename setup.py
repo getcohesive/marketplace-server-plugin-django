@@ -10,7 +10,7 @@ setup(
     url="https://github.com/getcohesive/marketplace-server-plugin-django",
     license="MIT",
     keywords="cohesive api marketplace saas django",
-    packages=['cohesive-marketplace-django'],
+    packages=['cohesive_marketplace_django'],
     install_requires=[
         'cohesive-marketplace-server-sdk-python@git+https://github.com/getcohesive/marketplace-server-sdk-python@main',
         'Django',
