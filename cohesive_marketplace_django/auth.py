@@ -11,7 +11,7 @@ class AuthMiddleware:
 
     def __call__(self, request):
         # Get the Authorization header
-        authorization_header = request.headers['authorization']
+        authorization_header = request.headers.get('authorization')
         if not authorization_header or authorization_header == "":
             authorization_header = request.META['HTTP_AUTHORIZATION']
             if not authorization_header or authorization_header == "":
