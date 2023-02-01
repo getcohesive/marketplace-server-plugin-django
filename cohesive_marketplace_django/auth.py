@@ -11,9 +11,11 @@ class AuthMiddleware:
 
     def __call__(self, request):
         # Get the Authorization header
-        authorization_header = request.headers['Authorization']
-        if not authorization_header:
-            return HttpResponse(status=http.HTTPStatus.UNAUTHORIZED)
+        authorization_header = request.headers['authorization']
+        if not authorization_header or authorization_header == "":
+            authorization_header = request.META['HTTP_AUTHORIZATION']
+            if not authorization_header or authorization_header == "":
+                return HttpResponse(status=http.HTTPStatus.UNAUTHORIZED)
 
         # Get the token from the header
         token = authorization_header.replace('Bearer ', '')
