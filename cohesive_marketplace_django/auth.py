@@ -13,7 +13,7 @@ class AuthMiddleware:
         # Get the Authorization header
         authorization_header = request.headers.get('authorization')
         if not authorization_header or authorization_header == "":
-            authorization_header = request.META['HTTP_AUTHORIZATION']
+            authorization_header = request.META.get('HTTP_AUTHORIZATION')
             if not authorization_header or authorization_header == "":
                 return HttpResponse(status=http.HTTPStatus.UNAUTHORIZED)
 
