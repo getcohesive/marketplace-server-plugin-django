@@ -12,7 +12,7 @@ setup(
     keywords="cohesive api marketplace saas django",
     packages=['cohesive-marketplace-django'],
     install_requires=[
-        'cohesive@git+https://github.com/getcohesive/marketplace-server-sdk-python@main',
+        'cohesive-marketplace-server-sdk-python@git+https://github.com/getcohesive/marketplace-server-sdk-python@main',
         'Django',
     ],
     python_requires=">=3.7",
