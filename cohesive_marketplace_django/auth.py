@@ -22,8 +22,11 @@ class AuthMiddleware:
 
         # Validate the token
         try:
+            print(token)
             auth_details = validate_token(token)
+            print(auth_details)
         except AuthenticationError as e:
+            print("validate token failed", e)
             return HttpResponse(status=http.HTTPStatus.UNAUTHORIZED)
 
         # Set the auth details in the request
