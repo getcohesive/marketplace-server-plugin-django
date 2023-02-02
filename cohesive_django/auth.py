@@ -11,7 +11,6 @@ class AuthMiddleware:
 
     def __call__(self, request):
         # Get the Authorization header
-        print(request.headers)
         authorization_header = request.headers.get('authorization')
         if not authorization_header or authorization_header == "":
             authorization_header = request.META.get('HTTP_AUTHORIZATION')
@@ -25,9 +24,7 @@ class AuthMiddleware:
 
         # Validate the token
         try:
-            print(token)
             auth_details = validate_token(token)
-            print(auth_details)
         except AuthenticationError as e:
             print("validate token failed", e)
             return HttpResponse(status=http.HTTPStatus.UNAUTHORIZED)
