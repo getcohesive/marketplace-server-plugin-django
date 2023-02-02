@@ -3,17 +3,17 @@ from setuptools import setup
 
 setup(
     name="cohesive-marketplace-server-plugin-django",
-    version="1.0.0",
+    version="1.0.1",
     description="Django plugin for the Cohesive Marketplace",
     author="Cohesive",
     author_email="contact@cohesive.so",
     url="https://github.com/getcohesive/marketplace-server-plugin-django",
     license="MIT",
     keywords="cohesive api marketplace saas django",
-    packages=['cohesive_marketplace_django'],
+    packages=['cohesive_django'],
     install_requires=[
-        'cohesive-marketplace-server-sdk-python@git+https://github.com/getcohesive/marketplace-server-sdk-python@main',
         'Django',
+        'cohesive-marketplace-server-sdk-python==1.0.0',
     ],
     python_requires=">=3.7",
     project_urls={

@@ -1,2 +1,2 @@
 Django
-git+https://github.com/getcohesive/marketplace-server-sdk-python
+cohesive-marketplace-server-sdk-python==1.0.0

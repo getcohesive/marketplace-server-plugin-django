@@ -1,0 +1,29 @@
+[build-system]
+requires = ['Django', 'cohesive-marketplace-server-sdk-python==1.0.0', 'setuptools>=61.0']
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cohesive-marketplace-server-plugin-django"
+version = "1.0.1"
+authors = [
+  { name="Team Cohesive", email="contact@cohesive.so" },
+]
+description = "Django plugin for the Cohesive Marketplace"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+"Source Code" = "https://github.com/getcohesive/marketplace-server-plugin-django"
