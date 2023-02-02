@@ -1,4 +1,5 @@
 from django.db import models
+import cohesive_django
 
 
 class UsageTracker(models.Model):
@@ -13,3 +14,4 @@ class UsageTracker(models.Model):
 
     class Meta:
         unique_together = (('workspace_id', 'instance_id'),)
+        app_label = cohesive_django.app_label
