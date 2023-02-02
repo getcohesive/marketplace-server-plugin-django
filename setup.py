@@ -13,7 +13,7 @@ setup(
     packages=['cohesive_django'],
     install_requires=[
         'Django',
-        'cohesive-marketplace-server-sdk-python==1.0.0',
+        'cohesive-marketplace-server-sdk-python==1.0.2',
     ],
     python_requires=">=3.7",
     project_urls={
