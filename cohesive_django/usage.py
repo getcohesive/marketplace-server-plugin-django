@@ -41,8 +41,10 @@ import cohesive_django.usage as usage
 import threading, time
 
 def wait_and_report():
-    time.sleep(1)
-    report_usage()
+    while True:        
+        time.sleep(1)
+        print("checking reports again")
+        report_usage()
 
 def start_reporting():
     t = threading.Thread(target=wait_and_report, args=(), kwargs={})
