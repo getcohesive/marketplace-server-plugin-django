@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cohesive-marketplace-server-plugin-django"
-version = "1.0.1"
+version = "1.0.2"
 authors = [
   { name="Team Cohesive", email="contact@cohesive.so" },
 ]

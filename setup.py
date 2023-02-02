@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="cohesive-marketplace-server-plugin-django",
-    version="1.0.1",
+    version="1.0.2",
     description="Django plugin for the Cohesive Marketplace",
     author="Cohesive",
     author_email="contact@cohesive.so",
