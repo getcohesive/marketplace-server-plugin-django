@@ -1,3 +1,4 @@
+import datetime
 from django.db import models
 import cohesive_django
 
@@ -15,3 +16,13 @@ class UsageTracker(models.Model):
     class Meta:
         unique_together = (('workspace_id', 'instance_id'),)
         app_label = cohesive_django.app_label
+
+class JobLock(models.Model):
+    job_id = models.CharField(unique=True, auto_created=False, max_length=100)
+    ts = models.BigIntegerField(blank=False, null=False)
+    class Meta:
+        app_label = cohesive_django.app_label
+
+    def refresh_lock(self):
+        self.ts = datetime.datetime.utcnow().timestamp()
+        self.save()
