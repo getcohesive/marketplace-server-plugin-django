@@ -2,8 +2,6 @@ from .models import JobLock
 import datetime
 import time
 from django.db import IntegrityError
-import logging
-logging = logging.getLogger("ch_dist_lock")
 # constants
 SECOND = 1000
 MINUTE = 60 * SECOND
@@ -30,14 +28,16 @@ def run_job_with_lock(
     lock_retry_time_in_secs: int = 5 * 60,
 ):
     while True:
-        logging.info("checking for lock")
+        print("CH_JOB_WITH_LOCK: checking for lock")
         lock = __acquire_lock(lock_key, lock_expiry_in_secs)
         if lock:
-            logging.info("lock acquired")
+            print("CH_JOB_WITH_LOCK: lock acquired")
             while True:
+                print("CH_JOB_WITH_LOCK: refreshing lock")
                 lock.refresh_lock()
                 job_function()
+                print("CH_JOB_WITH_LOCK: job complete")
                 time.sleep(duration_between_jobs_in_secs)
         else:
-            logging.info("lock busy")
+            print("CH_JOB_WITH_LOCK: lock busy. sleeping for "+str(lock_retry_time_in_secs)+ "secs")
             time.sleep(lock_retry_time_in_secs)

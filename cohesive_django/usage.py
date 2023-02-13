@@ -33,6 +33,12 @@ def report_usage_once():
         paid_usage = usage_tracker.used_items_count - usage_tracker.free_trial_items
         delta = paid_usage - usage_tracker.reported_items_count
         if delta > 0:
+            print(
+                "CH_USAGE_TRACKING: reporting for " + 
+                str(usage_tracker.workspace_id) + " " +
+                str(usage_tracker.instance_id) + " " +
+                f'{(usage_tracker.reported_items_count / usage_tracker.items_per_unit) + 1}'
+            )
             # Report
             Usage.report(UsageParams(
                 workspace_id=usage_tracker.workspace_id,
