@@ -10,13 +10,19 @@ HOUR = 60 * MINUTE
 
 def __acquire_lock(lock_key: str, lockExpiryInSeconds: int):
     try:
+        print("CH_JOB_WITH_LOCK: trying to create new lock")
         lock = JobLock(job_id=lock_key, ts=datetime.datetime.utcnow().timestamp())
         lock.save()
         return lock
     except IntegrityError:
+        print("CH_JOB_WITH_LOCK: failed to create new lock")
         lock = JobLock.objects.get(job_id=lock_key)
-        if datetime.datetime.utcnow().timestamp() - lock.ts > lockExpiryInSeconds*1000:
+        diff = datetime.datetime.utcnow().timestamp() - lock.ts
+        if diff > lockExpiryInSeconds:
+            print("CH_JOB_WITH_LOCK: deleting old lock")
             lock.delete()
+        else:
+            print("CH_JOB_WITH_LOCK: lock is only "+str(diff)+"secs old")
         return None
 
 
