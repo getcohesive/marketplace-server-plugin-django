@@ -1,5 +1,5 @@
 [build-system]
-requires = ['Django', 'cohesive-marketplace-server-sdk-python==1.0.0', 'setuptools>=61.0']
+requires = ['Django', 'cohesive-marketplace-server-sdk-python==1.0.2', 'setuptools>=61.0']
 build-backend = "setuptools.build_meta"
 
 [project]

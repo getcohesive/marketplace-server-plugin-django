@@ -10,6 +10,10 @@ class AuthMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
+        if request.method == 'OPTIONS':
+            # Process the request
+            return self.get_response(request)
+
         # Get the Authorization header
         authorization_header = request.headers.get('authorization')
         if not authorization_header or authorization_header == "":
